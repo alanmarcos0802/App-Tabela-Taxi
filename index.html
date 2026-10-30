@@ -595,7 +595,9 @@
             // WhatsApp do Simulador
             document.getElementById('send-whatsapp-sim').addEventListener('click', () => {
                 const total = simResult.textContent;
-                const msg = `Olá! Gostaria de agendar um transporte Comfort VIP a partir de Confins.%0A%0A*Estimativa do Simulador:* ${total}%0A*Modalidade:* ${simType.options[simType.selectedIndex].text}`;
+                const origin = document.getElementById('sim-origin') ? document.getElementById('sim-origin').value : 'Aeroporto de Confins';
+                const dest = document.getElementById('sim-destination') ? document.getElementById('sim-destination').value : `Simulação (${simType.options[simType.selectedIndex].text})`;
+                const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${dest}%0A💰 *Valor do orçamento:* ${total}%0A%0APodemos confirmar seu agendamento?`;
                 window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
             });
 
