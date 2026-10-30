@@ -63,6 +63,7 @@
             scrollbar-width: none;
         }
 
+	/* Para ocultar completamente o selo do Netlify */
 	.netlify-badge {
     	display: none !important;
 	}
@@ -384,7 +385,18 @@
         const favCount = document.getElementById('fav-count');
 
         // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('DOMContentLoaded', () => {
+            // Remove o selo do Netlify automaticamente da tela
+            setInterval(() => {
+                const badge = document.querySelector('[class*="netlify"], [id*="netlify"], 	iframe[src*="netlify"]');
+                if (badge) badge.style.display = 'none';
+            }, 300);
+
+            initTheme();
+            render();
+            setupEventListeners();
+            updateFavCount();
+        });
             initTheme();
             render();
             setupEventListeners();
