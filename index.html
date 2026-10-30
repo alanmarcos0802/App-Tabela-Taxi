@@ -603,38 +603,41 @@
             document.getElementById('close-modal').addEventListener('click', closeModal);
         }
 
-        // Modal Logic
-        function openModal(name) {
-            const item = TAXI_DATA.find(i => i.name === name);
-            if (!item) return;
+       // Modal Logic
+function openModal(name) {
+    const item = TAXI_DATA.find(i => i.name === name);
+    if (!item) return;
 
-            selectedItem = item;
-            document.getElementById('modal-title').textContent = item.name;
-            document.getElementById('modal-city').textContent = item.city;
-            document.getElementById('modal-price').textContent = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    selectedItem = item;
+    document.getElementById('modal-title').textContent = item.name;
+    document.getElementById('modal-city').textContent = item.city;
+    document.getElementById('modal-price').textContent = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-            document.getElementById('modal-copy-btn').onclick = () => {
-                navigator.clipboard.writeText(`Transporte Comfort VIP (Confins) - Destino: ${item.name} (${item.city}) - Valor: R$ ${item.price.toFixed(2)}`);
-                alert('Cotação copiada com sucesso!');
-            };
+    document.getElementById('modal-copy-btn').onclick = () => {
+        navigator.clipboard.writeText(`*CONFORTO VIP - TRANSPORTE EXECUTIVO*\n\nOlá! Segue o orçamento para o seu transporte:\n\n📍 Origem: Aeroporto de Confins\n📍 Destino: ${item.name} (${item.city})\n💰 Valor do orçamento: R$ ${item.price.toFixed(2)}\n\nPodemos confirmar seu agendamento?`);
+        alert('Cotação copiada com sucesso!');
+    };
 
-            document.getElementById('modal-wa-btn').onclick = () => {
-                shareWhatsApp(item.name, item.price);
-            };
+    // CORREÇÃO AQUI: Passando 'Aeroporto de Confins' como origem
+    document.getElementById('modal-wa-btn').onclick = () => {
+        shareWhatsApp('Aeroporto de Confins', item.name, item.price);
+    };
 
-            document.getElementById('quick-modal').classList.remove('hidden');
-        }
+    document.getElementById('quick-modal').classList.remove('hidden');
+}
 
-        function closeModal() {
-            document.getElementById('quick-modal').classList.add('hidden');
-        }
+function closeModal() {
+    document.getElementById('quick-modal').classList.add('hidden');
+}
 
-        function shareWhatsApp(name, price) {
-            const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${name}%0A💰 *Valor do orçamento:* ${formattedPrice}%0A%0APodemos confirmar seu agendamento?`;
+// CORREÇÃO AQUI: Adicionando 'origin' nos parâmetros da função
+function shareWhatsApp(origin, name, price) {
+    const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${name}%0A💰 *Valor do orçamento:* ${formattedPrice}%0A%0APodemos confirmar seu agendamento?`;
 
-            window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
-        }
+    window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
+}
+        
     </script>
 </body>
 </html>
