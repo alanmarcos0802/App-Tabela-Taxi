@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comfort VIP - Tabela de Tarifas Confins 2026</title>
     
-    <!-- PWA Meta Tags -->
+    <!-- PWA Meta Tags & Ícone de Aplicativo na Tela Principal -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Comfort VIP">
     <meta name="theme-color" content="#0A192F">
-    <link rel="manifest" href="data:application/json,{%22name%22:%22Comfort%20VIP%20Taxi%22,%22short_name%22:%22ComfortVIP%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%230A192F%22,%22theme_color%22:%22%230A192F%22}">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="manifest" href="data:application/json,{%22name%22:%22Comfort%20VIP%20Taxi%20Executivo%22,%22short_name%22:%22ComfortVIP%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%230A192F%22,%22theme_color%22:%22%230A192F%22,%22icons%22:[{%22src%22:%22logo.jpg%22,%22sizes%22:%22512x512%22,%22type%22:%22image/jpeg%22}]}">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,7 +75,7 @@
             <div class="flex items-center space-x-3">
                 <div class="relative group">
                     <img id="app-logo" src="logo.jpg" alt="Comfort VIP Logo" class="w-12 h-12 rounded-full object-cover border-2 border-gold shadow-md">
-
+                </div>
                 <div>
                     <h1 class="text-lg font-bold tracking-wider gold-gradient-text">COMFORT VIP</h1>
                     <p class="text-[10px] text-gray-500 dark:text-gray-400 font-semibold tracking-widest uppercase">Executive • Airport Transport</p>
@@ -91,7 +94,7 @@
         <!-- Banner Informativo -->
         <div class="bg-navy-700/50 text-gold-light text-xs py-1 px-4 text-center border-t border-b border-gold/20 flex items-center justify-center gap-2">
             <i class="fas fa-file-invoice text-gold"></i>
-            <span>Tabela Oficial Confins/MG — Portaria 5.884/2026</span>
+            <span>Tabela Oficial Confins/MG — Portaria 5.884/2026[cite: 4]</span>
         </div>
     </header>
 
@@ -149,9 +152,9 @@
                     <label class="block text-gray-500 dark:text-gray-400 mb-1">Tipo de Tarifa / Bandeira</label>
                     <select id="sim-type" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-lg p-2 font-medium focus:border-gold outline-none">
                         <option value="fixo">Tabela Fixa (Portaria)</option>
-                        <option value="b1">Bandeira 1 (R$ 4,50/km)</option>
-                        <option value="b2">Bandeira 2 (R$ 5,40/km)</option>
-                        <option value="km_esp">KM Especial Viagem (R$ 4,15/km)</option>
+                        <option value="b1">Bandeira 1 (R\$ 4,50/km)</option>
+                        <option value="b2">Bandeira 2 (R\$ 5,40/km)</option>
+                        <option value="km_esp">KM Especial Viagem (R\$ 4,15/km)</option>
                     </select>
                 </div>
 
@@ -161,7 +164,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-gray-500 dark:text-gray-400 mb-1">Horas Paradas (R$ 50,00/h)</label>
+                    <label class="block text-gray-500 dark:text-gray-400 mb-1">Horas Paradas (R\$ 50,00/h)</label>
                     <input type="number" id="sim-hours" value="0" min="0" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-navy-700 rounded-lg p-2 font-medium focus:border-gold outline-none">
                 </div>
 
@@ -170,7 +173,7 @@
                     <div class="flex items-center space-x-3 pt-2">
                         <label class="flex items-center space-x-1.5 cursor-pointer">
                             <input type="checkbox" id="sim-bandeirada" class="rounded border-gray-300 text-gold focus:ring-gold">
-                            <span>Bandeirada (R$ 5,40)</span>
+                            <span>Bandeirada (R\$ 5,40)</span>
                         </label>
                     </div>
                 </div>
@@ -180,7 +183,7 @@
             <div class="mt-4 p-3 bg-navy-900/10 dark:bg-navy-900/80 rounded-xl border border-gold/20 flex items-center justify-between">
                 <div>
                     <p class="text-[11px] text-gray-500 dark:text-gray-400">Valor Estimado Total</p>
-                    <p class="text-xl font-extrabold text-gold" id="sim-result">R$ 0,00</p>
+                    <p class="text-xl font-extrabold text-gold" id="sim-result">R\$ 0,00</p>
                 </div>
                 <button id="send-whatsapp-sim" class="bg-green-600 hover:bg-green-700 text-white font-medium text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition shadow">
                     <i class="fab fa-whatsapp text-sm"></i> Enviar Cotação
@@ -213,7 +216,7 @@
                     <tr>
                         <th class="p-3">Destino / Bairro</th>
                         <th class="p-3">Município</th>
-                        <th class="p-3 text-right">Tarifa (R$)</th>
+                        <th class="p-3 text-right">Tarifa (R\$)</th>
                         <th class="p-3 text-center">Ações</th>
                     </tr>
                 </thead>
@@ -246,14 +249,14 @@
 
             <div class="bg-gray-50 dark:bg-navy-900 p-4 rounded-xl border border-gold/20 flex items-center justify-between">
                 <div>
-                    <span class="text-xs text-gray-500 dark:text-gray-400">Tarifa Fixa (Portaria 5.884)</span>
-                    <p id="modal-price" class="text-2xl font-black text-gold">R$ 0,00</p>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">Tarifa Fixa (Portaria 5.884)[cite: 4]</span>
+                    <p id="modal-price" class="text-2xl font-black text-gold">R\$ 0,00</p>
                 </div>
                 <i class="fas fa-taxi text-3xl text-gold/30"></i>
             </div>
 
             <p class="text-xs text-gray-500 dark:text-gray-400 italic">
-                * Corrida iniciada no Aeroporto Internacional de Confins/MG. Inclui suporte bagagem e atende aos padrões de veículos executivos Comfort VIP.
+                * Corrida iniciada no Aeroporto Internacional de Confins/MG[cite: 4]. Inclui suporte bagagem e atende aos padrões de veículos executivos Comfort VIP.
             </p>
 
             <div class="grid grid-cols-2 gap-2 pt-2">
@@ -269,7 +272,7 @@
 
     <!-- JavaScript Principal com Banco de Dados Completo da Portaria 5.884/2026 -->
     <script>
-        // Banco de Dados da Portaria 5.884/2026 de Confins/MG
+        // Banco de Dados da Portaria 5.884/2026 de Confins/MG[cite: 4]
         const TAXI_DATA = [
             // Belo Horizonte Bairros
             { name: "Aarão Reis", city: "Belo Horizonte", price: 162.00, cat: "bh" },
@@ -475,7 +478,7 @@
                                 <button onclick="openModal('${item.name}')" class="px-3 py-1.5 bg-gray-100 dark:bg-navy-700 hover:bg-gold hover:text-navy-900 text-gray-700 dark:text-gray-200 rounded-lg text-xs font-semibold transition">
                                     Detalhes
                                 </button>
-                                <button onclick="shareWhatsApp('${item.name}', ${item.price})" class="px-2.5 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs transition">
+                                <button onclick="shareWhatsApp('Aeroporto de Confins', '${item.name}', ${item.price})" class="px-2.5 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs transition">
                                     <i class="fab fa-whatsapp"></i>
                                 </button>
                             </div>
@@ -488,153 +491,4 @@
         // Renderizar no Formato Tabela Limpa
         function renderTable(items) {
             tableBody.innerHTML = items.map(item => {
-                const isFav = favorites.includes(item.name);
-                const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-                return `
-                    <tr class="hover:bg-gray-50 dark:hover:bg-navy-700/50 transition">
-                        <td class="p-3 font-semibold text-gray-800 dark:text-gray-200">${highlightText(item.name, searchQuery)}</td>
-                        <td class="p-3 text-gray-500">${item.city}</td>
-                        <td class="p-3 text-right font-bold text-gold">${formattedPrice}</td>
-                        <td class="p-3 text-center space-x-2">
-                            <button onclick="toggleFav('${item.name}')" class="text-gray-400 hover:text-gold">
-                                <i class="${isFav ? 'fas text-gold' : 'far'} fa-star"></i>
-                            </button>
-                            <button onclick="openModal('${item.name}')" class="text-gray-400 hover:text-white">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        // Destacar Termos de Busca na Interface
-        function highlightText(text, query) {
-            if (!query) return text;
-            const re = new RegExp(`(${query})`, 'gi');
-            return text.replace(re, '<mark class="bg-gold/30 text-gold font-bold px-0.5 rounded">$1</mark>');
-        }
-
-        // Configurar Ouvintes de Eventos
-        function setupEventListeners() {
-            // Busca Inteligente
-            searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value;
-                clearSearchBtn.classList.toggle('hidden', !searchQuery);
-                render();
-            });
-
-            clearSearchBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                searchQuery = '';
-                clearSearchBtn.classList.add('hidden');
-                render();
-            });
-
-            // Abas de Categoria
-            document.querySelectorAll('#category-tabs .tab-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('#category-tabs .tab-btn').forEach(b => {
-                        b.classList.remove('bg-gold', 'text-navy-900', 'font-bold');
-                        b.classList.add('bg-white', 'dark:bg-navy-800', 'text-gray-600', 'dark:text-gray-300');
-                    });
-                    
-                    btn.classList.add('bg-gold', 'text-navy-900', 'font-bold');
-                    btn.classList.remove('bg-white', 'dark:bg-navy-800', 'text-gray-600', 'dark:text-gray-300');
-
-                    activeCategory = btn.getAttribute('data-cat');
-                    render();
-                });
-            });
-
-            // Alternância de Visualização (Cartões vs Tabela)
-            document.getElementById('view-cards').addEventListener('click', () => {
-                currentView = 'cards';
-                render();
-            });
-            document.getElementById('view-table').addEventListener('click', () => {
-                currentView = 'table';
-                render();
-            });
-
-            // Simulador Dinâmico
-            const simType = document.getElementById('sim-type');
-            const simKmBox = document.getElementById('sim-km-box');
-            const simKm = document.getElementById('sim-km');
-            const simHours = document.getElementById('sim-hours');
-            const simBandeirada = document.getElementById('sim-bandeirada');
-            const simResult = document.getElementById('sim-result');
-
-            function calculateSim() {
-                let total = 0;
-                const type = simType.value;
-
-                if (type === 'fixo') {
-                    simKmBox.classList.add('hidden');
-                    total = 198.00; // Valor base médio
-                } else {
-                    simKmBox.classList.remove('hidden');
-                    const km = parseFloat(simKm.value) || 0;
-                    if (type === 'b1') total = km * 4.50;
-                    if (type === 'b2') total = km * 5.40;
-                    if (type === 'km_esp') total = km * 4.15;
-                }
-
-                if (simBandeirada.checked) total += 5.40;
-                
-                const hours = parseFloat(simHours.value) || 0;
-                total += hours * 50.00;
-
-                simResult.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            }
-
-            [simType, simKm, simHours, simBandeirada].forEach(el => el.addEventListener('input', calculateSim));
-            calculateSim();
-
-            // WhatsApp do Simulador
-            document.getElementById('send-whatsapp-sim').addEventListener('click', () => {
-                const total = simResult.textContent;
-                const msg = `Olá! Gostaria de agendar um transporte Comfort VIP a partir de Confins.%0A%0A*Estimativa do Simulador:* ${total}%0A*Modalidade:* ${simType.options[simType.selectedIndex].text}`;
-                window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
-            });
-
-            // Modal Closes
-            document.getElementById('close-modal').addEventListener('click', closeModal);
-        }
-
-        // Modal Logic
-        function openModal(name) {
-            const item = TAXI_DATA.find(i => i.name === name);
-            if (!item) return;
-
-            selectedItem = item;
-            document.getElementById('modal-title').textContent = item.name;
-            document.getElementById('modal-city').textContent = item.city;
-            document.getElementById('modal-price').textContent = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-            document.getElementById('modal-copy-btn').onclick = () => {
-                navigator.clipboard.writeText(`Transporte Comfort VIP (Confins) - Destino: ${item.name} (${item.city}) - Valor: R$ ${item.price.toFixed(2)}`);
-                alert('Cotação copiada com sucesso!');
-            };
-
-            document.getElementById('modal-wa-btn').onclick = () => {
-                shareWhatsApp(item.name, item.price);
-            };
-
-            document.getElementById('quick-modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('quick-modal').classList.add('hidden');
-        }
-
-        function shareWhatsApp(name, price) {
-            const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${dest}%0A💰 *Valor do orçamento:* ${total}%0A%0APodemos confirmar seu agendamento?`;
-
-            window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+                const isFav = favorites.includes(item
