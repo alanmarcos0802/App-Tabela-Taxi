@@ -631,7 +631,7 @@
 
         function shareWhatsApp(name, price) {
             const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${dest}%0A💰 *Valor do orçamento:* ${total}%0A%0APodemos confirmar seu agendamento?`;
+            const msg = `*CONFORTO VIP - TRANSPORTE EXECUTIVO*%0A%0AOlá! Segue o orçamento para o seu transporte:%0A%0A📍 *Origem:* ${origin}%0A📍 *Destino:* ${name}%0A💰 *Valor do orçamento:* ${formattedPrice}%0A%0APodemos confirmar seu agendamento?`;
 
             window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
         }
